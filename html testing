@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html>
+<head>
+<em>HELLO</em>
+<script>
+function setCookie(cname,cvalue,exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  let expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
+function checkCookie() {
+  let user = getCookie("username");
+  if (user != "") {
+    alert("Welcome again " + user);
+  } else {
+     user = prompt("press any letters to start this:","");
+     if (user != "" && user != null) {
+       setCookie("username", user, 30);
+     }
+  }
+}
+</script>
+<hr></hr>
+<style> 
+.div1 {
+  width: 100px;
+  height: 100px;
+  border: 22px solid red;
+}
+
+.div2 {
+  width: 100px;
+  height: 100px;  
+  padding: 50px;
+  border: 22px solid orange;
+}
+</style>
+</head>
+<body>
+
+<h1>Hello</h1>
+
+<div class="div1">There </div>
+<br>
+<div class="div2">Welcome to this website</div>
+<hr></hr>
+<style> 
+div {
+  width: 200px;
+  height: 200px;
+  background: orange;
+  transition: width 8s;
+}
+
+div:hover {
+  width: 800px;
+}
+</style>
+</head>
+<body>
+
+<div>hello there </div>
+<hr></hr>
+</head>
+<style>
+div {
+  background-color: grey;
+  width: 200px;
+  height: 65px;
+  border: 1px solid orange;
+  overflow: view;
+}
+</style>
+</head>
+<body>
+
+<h2>hello</h2>
+
+<p>This is the way</p>
+<p>to do </p>
+
+<div>Do you want to use this box so that you can overflow the data</div>
+
+<body onload="checkCookie()"></body>
+<hr></hr>
+
+<p><span style="border: 22px solid blue">This is the way</span></p>
+<hr></hr>
+<h2>timer</h2>
+
+<p>timer for 10 seconds.</p>
+
+<h1 id="demo"></h1>
+
+<script>
+setTimeout(myFunction, 5000);
+
+function myFunction() {
+  document.getElementById("demo").innerHTML = "DO IT!!";
+}
+</script>
+<hr></hr>
+<h2>Press the button</h2>
+
+<button onclick="myFunction()">press me</button>
+
+<script>
+function myFunction() {
+  alert("look!!");
+}
+</script>
+<hr></hr>
+<style>
+.flex-container {
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: Red;
+}
+
+.flex-container > div {
+  background-color: #f1f1f1;
+  width: 100px;
+  margin: 10px;
+  text-align: center;
+  line-height: 75px;
+  font-size: 30px;
+}
+</style>
+</head>
+<body>
+<h1>boxes</h1>
+
+<div class="flex-container">
+  <div>a</div>
+  <div>b</div>
+  <div>c</div>  
+  <div>d</div>
+  <div>e</div>
+  <div>f</div>  
+  <div>g</div>
+  <div>a</div>
+  <div>b</div>
+  <div>c</div>  
+  <div>d</div>
+  <div>e</div>
+  <div>f</div>  
+  <div>g</div>
+  <div>a</div>
+  <div>b</div>
+  <div>c</div>  
+  <div>d</div>
+  <div>e</div>
+  <div>f</div>  
+  <div>g</div>
+</div>
+<hr></hr>
+<h1 style="background-color:red;">red</h1>
+
+<p style="background-color:red;">Hola </p>
+<a href="https://www.youtube.com">youtube</a>
+<hr></hr>
+<style>
+.button {
+  background-color: #0000FF;
+  border: none;
+  color: red;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 8px 8px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<h2>hello there</h2>
+
+<button>this is the way</button>
+<a href="https://www.youtube.com" class="button">to youtube</a>
+<button class="button">normal</button>
+<input type="button" class="button" value="Input Button">
+</script>
+<hr></hr>
+<h1 style="color:red;">TESTING</h1>
+
+<p style="color:orange;">COLORS</p>
+<hr></hr>
+<script>
+function allowDrop(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  var data = ev.dataTransfer.getData("text");
+  ev.target.appendChild(document.getElementById(data));
+}
+</script>
+</head>
+<body>
+
+<div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+
+<img id="drag1" src="star.png" draggable="true" ondragstart="drag(event)" width="69" height="69">
+<hr></hr>
+<style>
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #00FFFF;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(220, 20, 60);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+</head>
+<body>
+
+<div class="dropdown">
+  <span>click me</span>
+  <div class="dropdown-content">
+  <p>Hello World!</p>
+  </div>
+</div>
+<hr></hr>
+<style>
+div {
+  width: 150px; 
+  border: 8px solid #0000FF;
+}
+
+div.a {
+  word-wrap: normal;
+}
+
+div.b {
+  word-wrap: break-word;
+}
+</style>
+</head>
+<body>
+
+
+
+
+<div class="a"> supercalifragilisticexpialidocious</div>
+
+
+<div class="b"> supercalifragilisticexpialidocious     </div>
+<hr></hr>
+<style>
+#p4 {background-color:hsl(120,60%,70%);}
+#p5 {background-color:hsl(290,100%,50%);}
+#p6 {background-color:hsl(290,60%,70%);}
+#h1 {background-color:hsl(120,60%,70%);}
+</style>
+</head>
+<body>
+
+<p id="p4">Pastel green</p>
+<p id="p5">Violet</p>
+<p id="p6">Pastel violet</p>
+<h1 id="h1">Hello World </h1>
+<hr></hr>
+<style>
+div {height:50px;width:100%;}
+</style>
+<body>
+
+<h1>colors!!!!!!!!!!!</h1>
+
+<div style="background-color:#E9967A"></div>
+<div style="background-color:#808080"></div>
+<div style="background-color:#778899"></div>
+<div style="background-color:#9370DB"></div>
+<div style="background-color:#FF4500"></div>
+
+<h1 style="color:#E9967A">this is </h1>
+<h2 style="color:#808080">the</h2>
+<h3 style="color:#778899">way</h3>
+<h1 style="color:#9370DB">to do </h1>
+<h2 style="color:#FF4500">it</h2>
+<hr><hr>
+<style>
+.button {
+  background-color: #3366ff;
+  border: none;
+  color: orange;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+</style>
+</head>
+<body>
+
+<h2>boring button</h2>
+
+<button>button</button>
+<a href="https://www.youtube.com" class="button">youtube Button</a>
+<button class="button">just a button</button>
+<input type="button" class="button" value="let it go Button">
+<hr></hr>
+<style>
+div {
+  width: 300px;
+  height: 100px;
+  background-color: brown;
+  border: 1px solid red;
+}
+
+div#myDiv {
+  transform: rotate(-40deg);
+}
+</style>
+</head>
+<body>
+
+<h1>roate the box</h1>
+
+<p>box rotate.</p>
+
+<div>
+normal.
+</div>
+
+<div id="myDiv">
+rotation
+</div>
+<hr></hr>
+<style> 
+div {
+  border: 8px solid;
+  padding: 20px; 
+  width: 300px;
+  resize: vertical;
+  overflow: auto;
+}
+</style>
+</head>
+<body>
+
+<h1>resize</h1>
+
+<div>
+  <p>let it resize.</p>
+  <p>resizep</p>
+</div>
+</body>
+</html>
